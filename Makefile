@@ -1,4 +1,4 @@
-OBJS = main.o
+OBJS = main.o phoneme_adjust.o phoneme_to_wave.o play_wave.o prints.o text_to_phoneme.o text_to_text.o
 CC = gcc
 
 # libsdl present

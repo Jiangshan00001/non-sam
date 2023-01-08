@@ -31,8 +31,9 @@
 /// implemention:
 /// 1. phoneme->code  TODO
 /// 2. phoneme->wave  TODO
-/// 3. pinyin->phoneme->wave  TODO
-/// 4. english->phoneme->wave  TODO
+/// 3. rule->phoneme TODO
+/// 4. pinyin->phoneme->wave  TODO
+/// 5. english->phoneme->wave  TODO
 ///
 ///
 ///
@@ -50,7 +51,20 @@ char * g_wavfilename=0;
 int g_is_phonetic = 0;
 int g_is_pinyin = 0;
 char g_input[INPUT_BUFFER_SIZE];
+char g_phoneme[INPUT_BUFFER_SIZE*4];
 int g_is_raw = 0;
+
+char *g_buffer=0;
+int g_buffer_len=0;
+
+
+
+typedef struct FRAME_ONE_TAG
+{
+int m_pad;
+
+}FRAME_ONE;
+
 
 
 int parse_args(int argc, char *argv[])
@@ -63,7 +77,8 @@ int parse_args(int argc, char *argv[])
     {
         if (argv[i][0] != '-')
         {
-            strcpy_s(g_input,INPUT_BUFFER_SIZE, argv[i]);
+            //strcpy_s(g_input,INPUT_BUFFER_SIZE, argv[i]);
+            strncpy(g_input,argv[i], strlen(argv[i])>INPUT_BUFFER_SIZE?INPUT_BUFFER_SIZE:strlen(argv[i]));
         } else
         {
             if (argv[i][1]=='w')
@@ -135,6 +150,7 @@ int main(int argc, char *argv[])
         return 1;
     }
     if(parse_args(argc, argv)!=0) return 1;
+
 
 
     if(g_is_pinyin)
