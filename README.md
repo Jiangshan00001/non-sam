@@ -17,16 +17,26 @@ the difference with SAM:
 /// the programming language is limited to c.
 ///
 ///
+
 /// translation steps:
+
 /// 1. text-to-text: 100$ -> hundred dollars, June 1->first of June
+
 /// 2. text-to-phoneme:
+
 /// 3. tone settings.
+
 /// 4. phonme-to-wave.
+
 ///
 /// implemention:
+
 /// 1. phoneme->code  TODO
+
 /// 2. phoneme->wave  TODO
+
 /// 3. pinyin->phoneme->wave  TODO
+
 /// 4. english->phoneme->wave  TODO
 
 
